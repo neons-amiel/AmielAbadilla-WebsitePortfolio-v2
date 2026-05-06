@@ -1,6 +1,13 @@
 import Image, { type StaticImageData } from 'next/image'
 import Link from 'next/link'
 import TechPill, { type Tech } from '@/src/components/tech'
+import { TECH_STACK } from '@/src/components/tech' // Import the tech data
+
+// Move your image imports here
+import Ranola from '@/public/projects/ranola.png';
+import Reg from '@/public/projects/misareg.png';
+import alo from '@/public/projects/alo.png';
+import qpi from '@/public/projects/qpi.png';
 
 export type Project = {
   id: string
@@ -10,6 +17,42 @@ export type Project = {
   techStack: Tech[]
   href: string
 }
+
+// Export the projects data array!
+export const PROJECTS_DATA: Project[] = [
+  {
+    id: 'ranolarentals',
+    title: 'Ranola Car Rentals',
+    description: 'Lead Software Engineer for the official website for Ranola Car Rentals @ Lucena City - equipped with an Admin Dashboard and Car Reservation Features',
+    image: Ranola,
+    techStack: [TECH_STACK.react, TECH_STACK.django, TECH_STACK.tailwind],
+    href: 'https://ranolarentals.netlify.app/',
+  },
+  {
+    id: 'misareg',
+    title: 'MISA Registration System',
+    description: 'Design Engineer for the official engagement tracking and registration system of Ateneo Management Information Management Systems Association.',
+    image: Reg,
+    techStack: [TECH_STACK.next, TECH_STACK.ts, TECH_STACK.tailwind],
+    href: 'https://misa.org.ph',
+  },
+  {
+    id: 'alo',
+    title: 'ALO Application Management System',
+    description: 'Lead System Architect for the Application Management System for a Law Office; saving 100+ hours monthly from automating manual bottlenecks and centralizing data.',
+    image: alo,
+    techStack: [TECH_STACK.react, TECH_STACK.django, TECH_STACK.tailwind],
+    href: 'alosystem.up.railway.app',
+  },
+  {
+    id: 'qpi',
+    title: 'Noot QPI Calculator',
+    description: 'A simple and responsive QPI Calculator for Ateneans to calculate their grades.',
+    image: qpi,
+    techStack: [TECH_STACK.react, TECH_STACK.ts, TECH_STACK.tailwind],
+    href: 'https://nootqpi.netlify.app',
+  },
+]
 
 type ProjectCardProps = {
   project: Project
