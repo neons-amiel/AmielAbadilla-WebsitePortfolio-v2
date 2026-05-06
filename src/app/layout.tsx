@@ -3,6 +3,7 @@ import { Lexend, Montserrat } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/src/components/header";
+import Footer from "@/src/components/footer";
 import ParticlesSnow from "@/src/components/particles-snow";
 
 const lexend = Lexend({
@@ -43,6 +44,8 @@ export default function RootLayout({
             <div className="relative z-10">{children}</div>
           </div>
         </div>
+        <Footer/>
+        
       </body>
     </html>
   );

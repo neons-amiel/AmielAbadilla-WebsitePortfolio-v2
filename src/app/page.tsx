@@ -3,19 +3,19 @@ import Link from 'next/link';
 
 // IMAGES
 import Amiel from '@/public/pgamiel.jpg';
-import Ranola from '@/public/ranola.png';
-import Reg from '@/public/misareg.png';
-import alo from '@/public/alo.png';
-import qpi from '@/public/qpi.png';
+import Ranola from '@/public/projects/ranola.png';
+import Reg from '@/public/projects/misareg.png';
+import alo from '@/public/projects/alo.png';
+import qpi from '@/public/projects/qpi.png';
 
 // COMPONENTS
 import TypingText from "@/src/components/typing-text";
 import ProjectCard, { type Project } from "@/src/components/project";
 import { type Tech } from "@/src/components/tech";
 import BubbleText from "@/src/components/bubble-text";
+import TechCube from "@/src/components/techstack"; // Fixed Import Path!
 
-
-function Home() {
+export default function Home() {
   const messages = [
     'I love using technology to make life easier.',
     'I design, engineer and develop products that provides impact.',
@@ -23,19 +23,23 @@ function Home() {
   ]
 
   const tech: Record<string, Tech> = {
-    next: { id: 'next', name: 'Next.js' },
-    react: { id: 'react', name: 'React' },
-    ts: { id: 'ts', name: 'TypeScript' },
-    tailwind: { id: 'tailwind', name: 'Tailwind' },
-    django: { id: 'django', name:"Django"},
+    html: { id: 'html', name: 'HTML', icon: '/techstacks/html.png' },
+    css: { id: 'css', name: 'CSS', icon: '/techstacks/css.png' },
+    javascript: { id: 'javascript', name: 'JavaScript', icon: '/techstacks/javascript.png' },
+    ts: { id: 'ts', name: 'TypeScript', icon: '/techstacks/typescript.svg' }, 
+    react: { id: 'react', name: 'React', icon: '/techstacks/react.png' },
+    next: { id: 'next', name: 'Next.js', icon: '/techstacks/next.svg' },
+    tailwind: { id: 'tailwind', name: 'Tailwind', icon: '/techstacks/tailwind.png' },
+    python: { id: 'python', name: 'Python', icon: '/techstacks/python.svg' },
+    django: { id: 'django', name: 'Django', icon: '/techstacks/django.svg' },
+    git: { id: 'git', name: 'Git', icon: '/techstacks/git.svg' },
   }
 
-  const Projects: Project[] = [
+  const projects: Project[] = [
     {
       id: 'ranolarentals',
       title: 'Ranola Car Rentals',
-      description:
-        'Lead Software Engineer for the official website for Ranola Car Rentals @ Lucena City - equipped with an Admin Dashboard and Car Reservation Features',
+      description: 'Lead Software Engineer for the official website for Ranola Car Rentals @ Lucena City - equipped with an Admin Dashboard and Car Reservation Features',
       image: Ranola,
       techStack: [tech.react, tech.django, tech.tailwind],
       href: 'https://ranolarentals.netlify.app/',
@@ -43,34 +47,34 @@ function Home() {
     {
       id: 'misareg',
       title: 'MISA Registration System',
-      description:
-        'Design Engineer for the official engagement tracking and registration system of Ateneo Management Information Management Systems Association. ',
+      description: 'Design Engineer for the official engagement tracking and registration system of Ateneo Management Information Management Systems Association.',
       image: Reg,
-      techStack: [tech.next, tech.ts, tech.tailwind,],
+      techStack: [tech.next, tech.ts, tech.tailwind],
       href: 'https://misa.org.ph',
     },
     {
       id: 'alo',
       title: 'ALO Application Management System',
-      description:
-        'Lead System Architect for the Application Management System for a Law Office; saving 100+ hours monthly from automating manual bottlenecks and centralizing data.',
+      description: 'Lead System Architect for the Application Management System for a Law Office; saving 100+ hours monthly from automating manual bottlenecks and centralizing data.',
       image: alo,
-      techStack: [tech.next, tech.ts, tech.tailwind,],
+      techStack: [tech.next, tech.ts, tech.tailwind],
       href: 'alosystem.up.railway.app',
     },
     {
       id: 'qpi',
       title: 'Noot QPI Calculator',
-      description:
-        'A simple and responsive QPI Calculator for Ateneans to calculate their grades.',
+      description: 'A simple and responsive QPI Calculator for Ateneans to calculate their grades.',
       image: qpi,
-      techStack: [tech.next, tech.ts, tech.tailwind,],
+      techStack: [tech.next, tech.ts, tech.tailwind],
       href: 'https://nootqpi.netlify.app',
     },
   ]
 
+  
+
   return(
     <div className="w-full">
+      {/* Hero Section */}
       <main className="min-h-[calc(100svh-4rem)] flex items-center">
         <section className="mx-auto grid w-full max-w-5xl items-center gap-8 py-8 sm:py-10 lg:grid-cols-2 lg:gap-12">
           <div className="order-2 lg:order-1 flex flex-col gap-4">
@@ -99,7 +103,8 @@ function Home() {
                 View projects
               </Link>
               <a
-                href="/Amiel-Abadilla-Resume.txt"
+                href="/Amiel-Abadilla-Resume.pdf
+                "
                 download
                 className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition-colors"
               >
@@ -109,7 +114,7 @@ function Home() {
 
             <div className="flex items-center gap-3 pt-4">
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/amiel-abadilla/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
@@ -131,7 +136,7 @@ function Home() {
               </a>
 
               <a
-                href="https://github.com"
+                href="https://github.com/neons-amiel"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
@@ -168,27 +173,37 @@ function Home() {
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2">
-          {Projects.map((p) => (
+          {projects.map((p) => (
             <ProjectCard key={p.id} project={p} />
           ))}
         </div>
       </section>
 
-      {/* Experiences Section */}
-
+      {/* Highlights & Experiences Section */}
       <section id="experiences" className="mx-auto w-full max-w-6xl pb-24">
         <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-          <h2 className="text-2xl font-semibold tracking-tight">Experiences</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">Highlights & Experiences</h2>
           <p className="mt-2 text-sm text-white/70">
-            Placeholder section so the header link has a target. We can flesh this out next.
+            The following are some of my most proudest moments so far!
           </p>
         </div>
       </section>
-    </div>
+
+      {/* Tech Stack Section */}
+      <section id="techstack" className="mx-auto w-full max-w-6xl py-16">
+        <div className="mb-8 flex flex-col items-center text-center">
+          <h2 className="text-2xl font-semibold tracking-tight">My Coding Tech Stack</h2>
+          <p className="mt-2 text-sm text-white/70 max-w-xl">
+            The tools and technologies that I develop with. 
+          </p>
+        </div>
         
-
-
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+          {Object.values(tech).map((t) => (
+            <TechCube key={t.id} tech={t} />
+          ))}
+        </div>
+      </section>
+    </div>
   )
 }
-
-export default Home;

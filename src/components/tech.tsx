@@ -1,6 +1,9 @@
+import type { StaticImageData } from "next/image";
+
 export type Tech = {
-  id: string
-  name: string
+  id: string;
+  name: string;
+  icon?: StaticImageData | string;
 }
 
 type TechPillProps = {
@@ -29,4 +32,3 @@ export default function TechPill({ tech, onClick }: TechPillProps) {
     </Comp>
   )
 }
-
