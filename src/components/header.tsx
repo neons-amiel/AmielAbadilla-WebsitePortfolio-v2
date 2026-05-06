@@ -70,11 +70,16 @@ export default function Header() {
             
             {/* LOGO & NAME */}
             <div className="flex items-center justify-start">
-              <button
-                type="button"
-                onClick={() => {
-                  setMenuOpen(false)
-                  window.scrollTo({ top: 0, behavior: 'smooth' })
+              {/* Changed from <button> to <Link> */}
+              <Link
+                href="/"
+                onClick={(e) => {
+                  setMenuOpen(false);
+                  // If already on the home page, prevent standard routing and smooth scroll up
+                  if (window.location.pathname === '/') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
                 }}
                 className="group flex items-center gap-2.5 transition-colors"
               >
@@ -84,7 +89,7 @@ export default function Header() {
                 <span className="text-sm font-bold tracking-tight text-white/90">
                   amiel
                 </span>
-              </button>
+              </Link>
             </div>
 
             {/* DESKTOP NAV */}
