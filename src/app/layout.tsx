@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend, Montserrat } from "next/font/google";
 import "./globals.css";
-
+import { Analytics } from "@vercel/analytics/next";
 import Header from "@/src/components/header";
 import Footer from "@/src/components/footer";
 import ParticlesSnow from "@/src/components/particles-snow";
