@@ -1,0 +1,8 @@
+Amiel Abadilla — Resume
+
+This is a placeholder resume file so the "Download resume" button works.
+
+Replace this file with your real PDF when ready:
+- Put `Amiel-Abadilla-Resume.pdf` in `public/`
+- Update the link in `src/app/page.tsx` to point to the PDF
+

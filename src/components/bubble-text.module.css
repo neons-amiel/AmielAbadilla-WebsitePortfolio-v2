@@ -1,0 +1,32 @@
+.hoverText {
+  transition: 0.35s color, 0.35s text-shadow;
+  z-index: 1;
+
+}
+/* Hover effect: simulate bold visually */
+.hoverText:hover {
+  color: rgb(238, 242, 255);
+  text-shadow: 
+    1px 0 rgb(238, 242, 255),
+   -1px 0 rgb(238, 242, 255),
+    0 1px rgb(238, 242, 255),
+    0 -1px rgb(238, 242, 255);
+  z-index: 50;
+}
+
+/* Neighbor effects (optional) */
+.hoverText:hover + .hoverText {
+  color: rgb(199, 210, 254);
+}
+
+.hoverText:hover + .hoverText + .hoverText {
+  color: rgb(150, 180, 255);
+}
+
+.hoverText:has(+ .hoverText:hover) {
+  color: rgb(199, 210, 254);
+}
+
+.hoverText:has(+ .hoverText + .hoverText:hover) {
+  color: rgb(150, 180, 255);
+}

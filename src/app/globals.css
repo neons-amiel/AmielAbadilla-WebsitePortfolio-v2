@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  /* This maps the Next.js font variable to a Tailwind utility class */
+  --font-lexend: var(--font-lexend);
+  --font-montserrat: var(--font-montserrat);
+}
+
+:root {
+  font-family: var(--font-montserrat), ui-sans-serif, system-ui;
+  color-scheme: dark;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+  }
+}
+
