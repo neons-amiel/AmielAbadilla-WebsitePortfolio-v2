@@ -21,8 +21,8 @@ export default function Home() {
 
   const messages = [
     'I love using technology to make life easier.',
-    'I design, engineer and develop products that provides impact.',
-    'I love bridging Business gaps with IT Initiatives.',
+    'I hate bandaid solutions!',
+    'I listen to problems to develop solutions',
   ];
 
   // Infinite loop logic: If at the end, go to 0. If at 0, go to the end.
